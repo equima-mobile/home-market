@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button color="light" (click)="dismissRegister()">Close</ion-button>
+    <ion-title>register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form class="form" [formGroup]="register_form"  (ngSubmit)="onSubmit(register_form.value)">
+
+    <ion-item>
+      <ion-label color="primary">Username</ion-label>
+      <ion-input type="text" formControlName="username" class="form-controll" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary">Display Name</ion-label>
+      <ion-input type="text" formControlName="displayName"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary">Email</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary">Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <ion-item style="display: none;">
+      <ion-label color="primary">Email</ion-label>
+      <ion-input type="email" formControlName="email_admin" ></ion-input>
+    </ion-item>
+
+    <ion-item style="display: none;">
+      <ion-label color="primary">Password</ion-label>
+      <ion-input type="password" formControlName="password_admin" ></ion-input>
+    </ion-item>
+    <br>
+    <ion-button expand="full" type="submit" [disabled]="!register_form.valid">Submit</ion-button>
+  </form>
+
+  <p text-center>Already have a account?</p>
+  <ion-button expand="full" color="primary" (click)="loginModal()">Login</ion-button>
+
+
+</ion-content>

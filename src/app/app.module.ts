@@ -8,15 +8,40 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { IonicStorageModule } from '@ionic/storage';
+import { LoginPage } from './login/login.page';
+import { RegisterPage } from './register/register.page';
+import { ReactiveFormsModule } from '@angular/forms';
+import { LoginPageModule } from './login/login.module';
+import { RegisterPageModule } from './register/register.module';
+
+
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  declarations: [
+    AppComponent,
+  ],
+  entryComponents: [
+    LoginPage,
+    RegisterPage
+  ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    IonicStorageModule.forRoot(),
+    ReactiveFormsModule,
+    LoginPageModule,
+    RegisterPageModule
+      ],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    NativeStorage
   ],
   bootstrap: [AppComponent]
 })

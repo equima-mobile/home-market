@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  endpointURL: 'http://localhost/wordpress/wp-json/',
+  dateFormat: 'MMM d, y'
 };

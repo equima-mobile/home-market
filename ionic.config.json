@@ -1,5 +1,7 @@
 {
   "name": "immobilier_blank",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
