@@ -28,6 +28,7 @@ export class AuthentificationService {
     {username: username, password: password}
   ).pipe(
     tap(token => {
+      this.storage.remove("token");
       this.storage.set('token', token)
       .then(
         () => {
@@ -76,7 +77,7 @@ export class AuthentificationService {
       const headers = new HttpHeaders({
         'Authorization': 'Bearer' + token
       });
-      return this.http.get<User>(ENDPOINT_URL + 'wp/v2/users', { headers: headers })
+      return this.http.get<User>(ENDPOINT_URL + 'wp/v2/users?token="'+token+'"', { headers: headers })
       .pipe(
         tap(user => {
           return user;
