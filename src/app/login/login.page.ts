@@ -32,7 +32,8 @@ export class LoginPage implements OnInit {
       });
       }
 
-      async login(value) {
+      async login() {
+        let value=this.login_form.value;
       const loading = await this.loadingController.create({
       duration: 5000,
       message: 'Please wait...'
@@ -46,8 +47,9 @@ export class LoginPage implements OnInit {
           // reloaded for the newly authenticated user...
           this.dataService.items = [];
           this.alertService.presentToast("Logged In");
+          // this.modalController.dismiss();
+          this.router.navigateByUrl('dashboard');
           loading.dismiss();
-          this.router.navigateByUrl('home');
       },
       err => {
           this.error_message = 'Invalid credentials.';

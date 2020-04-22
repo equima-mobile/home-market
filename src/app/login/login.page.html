@@ -1,25 +1,88 @@
 <ion-header>
   <ion-toolbar>
-    <ion-button color="light" (click)="dismissLogin()">Close</ion-button>
-    <ion-title>Login</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content padding>
-  <form [formGroup]="login_form" (ngSubmit)="login(login_form.value)" method="post">
-    <ion-item>
-      <ion-label position="floating">Username</ion-label>
-      <ion-input  type="username" formControlName="username"></ion-input>
-    </ion-item>
-  
-    <ion-item>
-      <ion-label position="floating">Password</ion-label>
-      <ion-input  type="password" formControlName="password"></ion-input>
-    </ion-item>
-  
-    <p text-right>Forgot Password?</p>
-  
-    <ion-button type="submit" expand="full" color="primary">Login</ion-button>
-  </form>
-  <p text-center>Don't have a account?</p>
-  <ion-button expand="full" color="danger" (click)="registerModal()">Register</ion-button>
+  <ion-grid>
+      <ion-row>
+          <ion-col size="4">
+              <img src="../assets/img/logo-img.png" alt="logo-img.png" /></ion-col>
+          <ion-col size="8">
+              <!-- <img class="logo-text-white" src="../assets/img/logo-text-white.png" alt="logo-text.png" /> -->
+              <ion-text color="light">
+                  <h1>{{'fidelite.bienvenue' | translate}}</h1>
+              </ion-text>
+          </ion-col>
+      </ion-row>
+  </ion-grid>
+  <ion-card class="container-login">
+      <ion-card-header>
+          <ion-card-title>
+              <ion-text color="primary">
+                connexion
+              </ion-text>
+          </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+          <form [formGroup]="login_form">
+              <ion-item lines="none">
+                  <ion-icon class="input-icon" color="primary" name="person" slot="start"></ion-icon>
+                  <ion-input type="username" placeholder="Nom utilisateur"
+                      formControlName="username"
+                      [class.error1]="!login_form.controls.username.valid && login_form.controls.username.dirty">
+                  </ion-input>
+              </ion-item>
+              <div class="error-message">
+                  <div class="content-error" no-lines
+                      *ngIf="( login_form.get('username').hasError('minlength') || login_form.get('username').hasError('pattern') ||login_form.get('username').hasError('required') ) && login_form.get('username').touched">
+                      <div class="error" *ngIf="login_form.get('username').hasError('required') && login_form.get('username').touched">
+                        Veuillez saisir votre adresse e-mail
+                      </div>
+                      <div class="error" *ngIf="login_form.get('username').hasError('pattern') && login_form.get('username').touched">
+                        E-mail incorrect veuillez ressayer
+                      </div>
+                  </div>
+              </div>
+              <ion-item lines="none">
+                  <ion-icon class="input-icon" color="primary" name="lock" slot="start"></ion-icon>
+                  <ion-input type="password" placeholder="Mot de passe"
+                      formControlName="password"
+                      [class.error1]="!login_form.controls.password.valid && login_form.controls.password.dirty">
+                  </ion-input>
+              </ion-item>
+          <div class="error-message">
+              <div class="content-error" no-lines
+                  *ngIf="( login_form.get('password').hasError('minlength') || login_form.get('password').hasError('pattern') ||login_form.get('password').hasError('required') ) && login_form.get('password').touched">
+                  <div class="error" *ngIf="login_form.get('password').hasError('required') && login_form.get('password').touched">
+                    Veuillez saisir votre mot de passe actuel
+                  </div>
+                  <div class="error" *ngIf="login_form.get('password').hasError('minlength') && login_form.get('password').touched">
+                    Votre mot de passe doit faire plus de 4 caractères
+                  </div>
+                  <div class="error" *ngIf="login_form.get('password').hasError('maxlength') && login_form.get('password').touched">
+                    Maximum 12 caractères
+                  </div>
+              </div>
+          </div>
+          </form>
+          <!-- <div class="forgot-password">
+              <ion-button fill="clear" color="primary" size="small" (click)="popUpResetPassword()">
+                  {{'fidelite.mdpOublie' | translate}}?</ion-button>
+          </div> -->
+          <div class="log-in">
+              <ion-button (click)="login()" shape="round" color="primary" expand="block">
+                  <ion-label>aller !</ion-label>
+                  <ion-spinner *ngIf="spinner_button" name="dots" color="primary-contrast"></ion-spinner>
+              </ion-button>
+          </div>
+          <ion-text color="primary">
+              <p class="not-registered-text">pas encore inscrit ?</p>
+          </ion-text>
+          <ion-button fill="clear" class="subscribe-btn" color="primary" [routerLink]="['/register']">s'inscrire 
+          </ion-button>
+      </ion-card-content>
+  </ion-card>
 </ion-content>

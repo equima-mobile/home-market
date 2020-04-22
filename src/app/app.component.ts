@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import { Platform, MenuController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AuthentificationService } from './shared/authentification.service';
-import { Router } from '@angular/router';
+
+import { TranslateService } from '@ngx-translate/core';
 import { Storage } from '@ionic/storage';
-import { AlertService } from './shared/alert.service';
 
 
 @Component({
@@ -17,31 +17,51 @@ import { AlertService } from './shared/alert.service';
 export class AppComponent {
   public selectedIndex = 0;
   public appPages = [
+   
     {
-      title: 'Dashboard',
-      url: '/dashboard',
-      icon: 'home'
+      title: 'Accueil',
+      url: '/search-property',
+      icon: 'Home'
     },
     {
-      title: 'Home',
-      url: '/home',
-      icon: 'home'
+      title: 'Actus',
+      url: '/actus',
+      icon: 'list'
+    },
+    {
+      title: 'Properties',
+      url: '/property',
+      icon: 'card'
+    },
+    {
+      title: 'Agents',
+      url: '/agent',
+      icon: 'person'
+    },
+    {
+      title: 'Mon compte',
+      url: '/dashboard',
+      icon: 'person'
     },
   ];
 
 
     rootPage:any;
+    langPhone: any;
+    langPromise: any;
+    langStorage: any
+    langGlobal: any;
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     public authenticationService: AuthentificationService,
-    private router: Router,
-    private alertService: AlertService,
+    public translate: TranslateService,
     private storage: Storage,
   ) {
     this.initializeApp();
+    // translate.setDefaultLang('en');
   }
 
   initializeApp() {
@@ -49,9 +69,10 @@ export class AppComponent {
 
      // Commenting splashScreen Hide, so it won't hide splashScreen before auth check
       //this.splashScreen.hide();
-      this.authenticationService.getToken();
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this.recupLang();
+      this.authenticationService.getToken();
     });
   }
 
@@ -62,17 +83,35 @@ export class AppComponent {
     }
   }
 
-
-  logout() {
-    this.authenticationService.logout().then(
-      (data) => {
-        this.alertService.presentToast('Déconnécté');    
-        this.router.navigateByUrl('landing');
+  recupLang() {
+    this.getLang().then((result) => {
+      this.langPromise = result;
+      if (this.langPromise !== 'fr') {
+        this.translate.use('en');
+      } else {
+        this.translate.use('fr');
       }
-    ).catch(error=>{
-      console.log(error);
+    }).catch(err=>{
+      console.log(err);
+    });
+  }
+
+  getLang() {
+    return new Promise(resolve => {
+      this.storage.get('lang').then((val) => {
+        this.langStorage = val;
+        if (this.langStorage == null || this.langStorage == undefined) {
+            this.langPhone = 'en';
+            this.storage.set('lang', this.langPhone);
+            resolve(this.langPhone);
+        } else {
+          resolve(this.langStorage);
+        }
+      }).catch(err=>{
+        console.log(err);
+      });
     });
   }
 
 
-}
+  }

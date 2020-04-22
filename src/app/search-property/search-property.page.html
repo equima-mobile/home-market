@@ -1,0 +1,60 @@
+<ion-header id="menu_haut">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="container-logo_sans">
+        <img class="logo-img" src="../assets/img/logo-img.png" alt="logo-img.png" />
+        <!-- <img class="logo-text" src="../assets/img/logo-text.png" alt="logo-text.png" /> -->
+      </div>
+    </ion-title>
+      <ion-buttons slot="end">
+        <button *ngIf="!loggedUser" ion-button (click)="autentification()" icon-only>
+          <ion-icon name="person"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-toolbar>
+  </ion-header>
+  <div *ngIf="spinner" class="spinner_center">
+    <ion-spinner color="primary"></ion-spinner>
+    <label>{{'spinner' | translate}}</label>
+  </div>
+  <ion-content padding *ngIf="properties">
+    <div>
+      <div class="iconsearch">
+        <!-- <img alt="" src="assets/img/icon_search.png" /> -->
+        <ion-icon name="search"></ion-icon>
+      </div>
+      <div class="recherche">
+        <h4>{{'search_property.message' | translate}}</h4>
+        <ion-item class="lieu">
+          <ion-input placeholder="Lieu" type="text" ngModel #R id="adresse" name="Rue" (keyup)='findbystreet("adresse",R.value)'></ion-input>
+        </ion-item>
+      </div>
+      <div class="boutonrech">
+        <ion-button  (click)="resultat(filteredproperties)" shape="round" color="primary" expand="block">
+          {{'search_property.btn_search' | translate}}</ion-button>
+      </div>
+    </div>
+
+    <div class="container-menu">
+      <div class="container-list">
+        <div class="listproperties">
+          <div *ngFor="let property of filteredproperties" (click)="detailproperty(property.id)">
+            <ion-card>
+              <ion-item>
+                <ion-avatar item-start>
+                  <img alt="" src="assets/img/lieu.png">
+                </ion-avatar>
+                <h2>{{property.title_property}}</h2>
+              </ion-item>
+              <ion-item><p>adresse: {{ property.adresse}}</p></ion-item>
+              <ion-item><p>prix:{{ property.prix}}</p></ion-item>
+            </ion-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+  

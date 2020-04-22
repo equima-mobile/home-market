@@ -1,0 +1,39 @@
+<ion-header id="menu_haut">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="black"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="container-logo_sans">
+        <img class="logo-img" src="../assets/img/logo-img.png" alt="logo-img.png" />
+        <!-- <img class="logo-text" src="../assets/img/logo-text.png" alt="logo-text.png" /> -->
+      </div>
+    </ion-title>
+  </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+
+  <div *ngIf="spinner" class="spinner_center">
+    <ion-spinner color="primary"></ion-spinner>
+    <label>chargement</label>
+  </div>
+  <ion-card class="container-profile" *ngIf="agent">
+    <div class="container-logo-img" *ngIf="agent">
+      <img [src]="agent.url_image" >
+    </div>
+    <h1>{{agent.nom_agent}}</h1>
+    <ion-card-content *ngIf="agent">
+      <h3>
+        <ion-icon class="profile-icon" name="call"></ion-icon>{{agent.name_company}}
+      </h3>
+      <p>
+        <ion-icon class="profile-icon" name="call"></ion-icon> {{agent.call_mobile}}
+      </p>
+      <p>
+        <ion-icon class="profile-icon" name="mail"></ion-icon> {{agent.email_agent}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

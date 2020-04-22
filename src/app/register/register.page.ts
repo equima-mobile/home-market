@@ -31,7 +31,8 @@ export class RegisterPage implements OnInit {
     });
   }
 
-  async onSubmit(values){
+  async onSubmit(){
+    let values=this.register_form.value;
     //only authenticated administrators can create users
     const loading = await this.loadingController.create({
       duration: 5000,
@@ -67,7 +68,8 @@ export class RegisterPage implements OnInit {
               () => {
                 this.dismissRegister();
                 loading.dismiss();
-                this.router.navigateByUrl('home');
+                this.modalController.dismiss();
+                this.router.navigateByUrl('dashboard');
               }
             );
             this.alertService.presentToast('Inscription réussie');

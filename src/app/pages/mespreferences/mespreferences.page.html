@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar class="retour">
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="container-logo">
+        <img class="logo-img" src="../assets/img/logo-img.png" alt="logo-img.png" />
+        <div>
+          <!-- <img class="logo-text" src="../assets/img/logo-text-white.png" alt="logo-text.png" /> -->
+          <h4>{{'compte.mesPreferences' | translate}}</h4>
+        </div>
+
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div *ngIf="spinner" class="spinner_center">
+    <ion-spinner color="primary"></ion-spinner>
+    <label>{{'spinner' | translate}}</label>
+  </div>
+  <ion-item>
+    <ion-label>{{'preferences.langue' | translate}}</ion-label>
+    <ion-select [(ngModel)]="langSelect" placeholder="{{placeholder}}" okText="ok"
+      cancelText="{{'preferences.annuler' | translate}}" (ionChange)='langStorag()'>
+      <ion-select-option *ngIf="langPhone" [value]="langPhone.fr" >
+        {{'preferences.francais' | translate}}
+      </ion-select-option>
+      <ion-select-option *ngIf="langPhone" [value]="langPhone.en" >
+        {{'preferences.anglais' | translate}}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+
+
+</ion-content>

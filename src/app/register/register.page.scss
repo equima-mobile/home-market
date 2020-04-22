@@ -1,12 +1,57 @@
-.alert {
-    position: relative;
-    padding: .75rem 1.25rem;
-    margin-bottom: 1rem;
-    border: 1px solid transparent;
-    border-radius: .25rem;
-    }
-    .alert-danger {
-    color: #721c24;
-    background-color: #f8d7da;
-    border-color: #f5c6cb;
-    }
+ion-content {
+    --background: url(../../assets/img/login-background.png) 0 0 / 100% 100% no-repeat;
+}
+
+.container-subscribe {
+    --background: url(../../assets/img/card-login-background.png) no-repeat;
+    text-align: center;
+}
+
+.logo-text-white {
+    margin-top: 10%;
+}
+
+ion-input {
+    font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica-Neue", Helvetica, Arial, sans-serif;
+    // font-family: var(--ion-font-family-bold) !important;
+}
+
+.input-icon {
+    margin-right: 0%;
+}
+
+sup {
+    padding-right: 5%;
+    color: #2f2c3a;
+    font-size: 18px;
+}
+
+ion-item {
+    --background: none;
+    --highlight-color-valid: var(--ion-color-primary);
+}
+
+.log-in {
+    margin-top: 25px;
+}
+
+.login-btn {
+    font-size: large;
+    margin-top: -3px;
+}
+
+ion-datetime {
+    --padding-start: 0;
+}
+
+.not-registered-text {
+    font-size: x-small;
+}
+
+.log-in {
+    margin-bottom: 19px;
+}
+
+.message-error {
+    border-top: 1px solid #000;
+}

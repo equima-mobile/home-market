@@ -5,21 +5,66 @@ import { AuthGuard } from './guard/auth.guard';
 const routes: Routes = [
   {
   path: '',
-  redirectTo: 'landing',
+  redirectTo: 'search-property',
   pathMatch: 'full'
   },
   {
-  path: 'home',loadChildren: './home/home.module#HomePageModule',canActivate: [AuthGuard]},
+    path: 'actus',
+    children: [
+      {
+        path: '',
+        loadChildren: './actus/actus.module#ActusPageModule'
+      },
+      {
+        path: ':id',
+        loadChildren: './post/post.module#PostPageModule'
+      }
+    ]
+  },
+
   {path: 'login', loadChildren: './login/login.module#LoginPageModule'},
   {path: 'register', loadChildren: './register/register.module#RegisterPageModule'},
   {path: 'landing',loadChildren: './pages/landing/landing.module#LandingPageModule'},
   {path: 'dashboard',loadChildren: './pages/dashboard/dashboard.module#DashboardPageModule',canActivate: [AuthGuard]},
-  {path: ':slug', loadChildren: './post/post.module#PostPageModule'},
+  {
+    path: 'property',
+    children: [
+      {
+        path: '',
+        loadChildren: './properties/properties.module#PropertiesPageModule'
+      },
+      {
+        path: ':id',
+        loadChildren: './pages/oneproperty/oneproperty.module#OnepropertyPageModule'
+      }
+    ]
+  },
+  {
+    path: 'homeresult',
+    children: [
+      {
+        path: '',
+        loadChildren: './pages/homeresult/homeresult.module#HomeresultPageModule'
+      },
+    ]
+  },
+  {
+    path: 'agent',
+    children: [
+      {
+        path: '',
+        loadChildren: './pages/listagents/listagents.module#ListagentsPageModule'
+      },
+      {
+        path: ':id',
+        loadChildren: './pages/agent/agent.module#AgentPageModule'
+      }
+    ]
+  },
+  {path: 'mesinfos',loadChildren: './pages/mes-infos/mes-infos.module#MesInfosPageModule'},
+  {path: 'search-property',loadChildren:'./search-property/search-property.module#SearchPropertyPageModule'},
+  {path: 'mespreferences',loadChildren:'./pages/mespreferences/mespreferences.module#MespreferencesPageModule'},
   
-  // {
-  //   path: 'register',
-  //   loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
-  // }
   ];
 
 @NgModule({

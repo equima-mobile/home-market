@@ -5,6 +5,8 @@ import 'rxjs/add/operator/map';
 import {of} from 'rxjs/observable/of';
 import {Observable} from 'rxjs';
 import { AuthentificationService } from './authentification.service';
+import { map } from 'rxjs/operators';
+
 const ENDPOINT_URL = environment.endpointURL;
 
 @Injectable({
@@ -67,6 +69,15 @@ export class DataService {
 
     hasMorePosts() {
     return this.page < this.totalPages;
+    }
+
+    getPostContent(id) {
+      return this.http.get(`${ENDPOINT_URL}wp/v2/posts/${id}?_embed`).pipe(
+        map(post => {
+          post['media_url'] = post['_embedded']['wp:featuredmedia'][0]['media_details'].sizes['medium'].source_url;
+          return post;
+        })
+      )
     }
 
 }

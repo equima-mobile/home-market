@@ -1,0 +1,183 @@
+
+    .container-list{
+        margin-left: 10px;
+        margin-right: 10px;
+        overflow-y: scroll;
+        background: rgba(255, 255, 255, 0.53);
+    }
+    .container-menu{
+        input.text-input.text-input-md, input.text-input.text-input-ios{
+            margin: 0px;
+            padding-left: 5px;
+        }
+    }
+   
+
+    h4{
+        
+        padding-top: 10px;
+        font-size: 15px!important;
+        line-height: 25px!important;
+        font-weight: 300!important;
+        text-align: center;
+       
+    }
+       
+    
+    input.text-input.text-input-md,  input.text-input.text-input-ios{
+        color: #999;
+        font-size: 1.4rem;
+
+    }
+    
+    .recherche{
+        margin-top:10px;
+    }
+    .item-md, .item-ios, .item-wp{
+        margin-bottom: 10px;
+        background: none;
+        padding-left: 0px;
+    }
+   
+
+    button.search {
+        padding: 10px;
+    }
+    .search{
+       
+        min-height: 3rem;
+        color: #ffffff;
+        width:100%;
+        font-size: 13pt;
+        background: #0745ee;
+        text-align:center;
+        padding: 8px;
+        border-radius: 2px;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .logosearch{
+        width:20px;
+        margin-right:5px;
+    }
+    
+    ion-label{
+        color:#ffffff;
+        font-size:12pt;
+        margin-bottom: 5px;
+    }
+  
+    ion-avatar {
+        display: block;
+        line-height: 1;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        text-align: center;
+    }
+    ion-avatar img {
+        width: 50px;
+        height: 50px;
+        display: block;
+        margin-top:20%;
+        border-radius: 50%;
+    }
+    ion-avatar .label-md{
+        margin:0px;
+    }
+   
+    .listproperties {
+        margin-top:20px;
+    }
+    .listproperties > ion-card{
+        border-radius: 0px;
+    }
+    .listproperties .item-md h2, .listproperties .item-ios h2, .listproperties .item-wp h2{
+        color: var(--ion-color-primary);
+        font-weight:400;
+        font-size: smaller;
+        word-spacing: 3px;
+        margin-top: 0px;
+    }
+    .listproperties .item-md, .listproperties .item-ios, .listproperties .item-wp{
+        margin-bottom: 0px;
+    }
+    
+  
+  
+    .ion-item.item.item-block.item-md.item-input.ng-untouched.ng-pristine.ng-valid{
+        border-bottom-color: var(--ion-color-primary);
+        box-shadow: none;
+    }
+    .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner{
+        border-bottom-color: var(--ion-color-primary);
+        box-shadow: none;
+    }
+    select.ng-untouched.ng-pristine.ng-invalid {
+        border-bottom-color:var(--ion-color-primary);
+        box-shadow: none;
+    }
+  
+    .item-md.item-input.item-input-has-focus .item-inner, .item-md.item-input.input-has-focus .item-inner{
+        border-bottom-color: var(--ion-color-primary);
+        box-shadow: none;
+    }
+      .recherche{
+        background: rgba(255, 255, 255, 1);
+        padding: 10px ;
+        border-radius: 10px 10px 0px 0px;
+        margin-bottom: 5px;
+        border: 1px solid #ffffff;
+        margin-top:-32px;
+      }
+      .iconsearch{
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          border:2px solid var(--ion-color-primary);
+          margin:0 auto;
+          display:flex;
+          justify-content: center;
+          align-items: center;
+          background: #ffffff;
+          margin-bottom:35px;
+          margin-top:10px;
+         
+      }
+      .iconsearch img{
+          width: 30px;
+          color: #1B5EA6;
+
+      }
+      .boutonrech{
+        background: rgba(255, 255, 255, 1);
+        padding: 10px ;
+        border-radius: 0px 0px 10px 10px;
+        border: 1px solid #ffffff;
+      }
+     .lieu .input-wrapper::before {
+        content: url(../../assets/img/lieu.png);
+        width:25px;
+        height: 25px;
+        display: block;
+        margin-left:5px
+    }
+      
+       ion-icon {
+        color: rgb(15, 14, 14);
+        //background-color: #ff6a8e!important;
+    }
+
+button[disabled], [ion-button][disabled]{
+    background: #f987b0!important;
+}
+
+ion-toolbar {
+    padding-right: 20px;
+}
+
+
+ion-icon {
+    font-size: 40px; //Preferred size here
+}

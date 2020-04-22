@@ -1,0 +1,35 @@
+<ion-header id="menu_haut">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="black"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="container-logo_sans">
+        <img class="logo-img" src="../assets/img/logo-img.png" alt="logo-img.png" />
+        <!-- <img class="logo-text" src="../assets/img/logo-text.png" alt="logo-text.png" /> -->
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container-menu">
+    <div class="listproperties" *ngFor="let property of resultproperties" (click)="detailproperty(property.id)">
+      <ion-card>
+        <ion-item>
+          <ion-avatar item-start>
+            <img alt="" src="{{property.url_image}}">
+          </ion-avatar>
+          <h2>{{property.title_property}}</h2>
+        </ion-item>
+        <ion-card-content>
+          <ion-row>
+            <ion-col col-sm-3>
+              <ion-badge text-wrap class="detailproperty"> <span class="detailpropertyAdr">{{property.adresse}}</span> |  {{property.prix}} Ar</ion-badge>
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>

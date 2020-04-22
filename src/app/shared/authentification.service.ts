@@ -3,7 +3,7 @@ import {environment} from '../../environments/environment';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import { Storage } from '@ionic/storage';
-import { User } from '../models/user';
+import { User, User_base } from '../models/user';
 
 
 const ENDPOINT_URL = environment.endpointURL;
@@ -12,7 +12,6 @@ const ENDPOINT_URL = environment.endpointURL;
   providedIn: 'root'
 })
 export class AuthentificationService {
-  private user: any;
   isLoggedIn = false;
   token:any
   constructor(private http: HttpClient,
@@ -24,26 +23,42 @@ export class AuthentificationService {
     // password: password
     // });
 
-    return this.http.post(ENDPOINT_URL + 'jwt-auth/v1/token',
-    {username: username, password: password}
-  ).pipe(
-    tap(token => {
-      this.storage.remove("token");
-      this.storage.set('token', token)
-      .then(
-        () => {
-          console.log('Token Stored');
-        },
-        error => console.error('Error storing item', error)
+        return this.http.post(ENDPOINT_URL + 'jwt-auth/v1/token',
+        {username: username, password: password}
+      ).pipe(
+        tap(token => {
+          this.storage.set('token', token)
+          .then(
+            () => {
+              console.log('Token Stored');
+            },
+            error => console.error('Error storing item', error)
+          );
+          this.token = token;
+          this.isLoggedIn = true;
+          return token;
+        }),
       );
-      this.token = token;
-      this.isLoggedIn = true;
-      return token;
-    }),
-  );
 
+    }
 
-
+    generetoken(username, password){
+      return this.http.post(ENDPOINT_URL + 'jwt-auth/v1/token',
+        {username: username, password: password}
+      ).pipe(
+        tap(token => {
+          this.storage.set('token_genere', token)
+          .then(
+            () => {
+              console.log('Token Stored');
+            },
+            error => console.error('Error storing item', error)
+          );
+          this.token = token;
+          this.isLoggedIn = true;
+          return token;
+        }),
+      );
     }
 
     validateAuthToken(token) {
@@ -77,7 +92,7 @@ export class AuthentificationService {
       const headers = new HttpHeaders({
         'Authorization': 'Bearer' + token
       });
-      return this.http.get<User>(ENDPOINT_URL + 'wp/v2/users?token="'+token+'"', { headers: headers })
+      return this.http.get(ENDPOINT_URL + 'wp/v2/users', { headers: headers })
       .pipe(
         tap(user => {
           return user;

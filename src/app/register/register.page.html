@@ -1,47 +1,151 @@
 <ion-header>
   <ion-toolbar>
-    <ion-button color="light" (click)="dismissRegister()">Close</ion-button>
-    <ion-title>register</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button color="black"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <form class="form" [formGroup]="register_form"  (ngSubmit)="onSubmit(register_form.value)">
+  <ion-grid>
+    <ion-row>
+        <ion-col size="4">
+            <img src="../assets/img/logo-img.png" alt="logo-img.png" /></ion-col>
+        <ion-col size="8">
 
-    <ion-item>
-      <ion-label color="primary">Username</ion-label>
-      <ion-input type="text" formControlName="username" class="form-controll" required></ion-input>
-    </ion-item>
+            <!-- <img class="logo-text-white" src="../assets/img/logo-text-white.png" alt="logo-text.png" /> -->
 
-    <ion-item>
-      <ion-label color="primary">Display Name</ion-label>
-      <ion-input type="text" formControlName="displayName"></ion-input>
-    </ion-item>
+            <ion-text color="light">
+                <h1>bienvenue</h1>
+            </ion-text>
+        </ion-col>
+    </ion-row>
+</ion-grid>
 
-    <ion-item>
-      <ion-label color="primary">Email</ion-label>
-      <ion-input type="email" formControlName="email"></ion-input>
-    </ion-item>
+<ion-card class="container-subscribe">
+    <ion-card-header>
+        <ion-card-title>
+            <ion-text color="primary">
+              inscription
+            </ion-text>
+        </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
 
-    <ion-item>
-      <ion-label color="primary">Password</ion-label>
-      <ion-input type="password" formControlName="password"></ion-input>
-    </ion-item>
-    <ion-item style="display: none;">
-      <ion-label color="primary">Email</ion-label>
-      <ion-input type="email" formControlName="email_admin" ></ion-input>
-    </ion-item>
+        <!-- debut form -->
+        <form [formGroup]="register_form">
 
-    <ion-item style="display: none;">
-      <ion-label color="primary">Password</ion-label>
-      <ion-input type="password" formControlName="password_admin" ></ion-input>
-    </ion-item>
-    <br>
-    <ion-button expand="full" type="submit" [disabled]="!register_form.valid">Submit</ion-button>
-  </form>
+            <!-- item1 -->
+            <ion-item lines="none">
+                <ion-icon class="input-icon" color="primary" name="person" slot="start"></ion-icon>
+                <sup>*</sup>
+                <ion-input formControlName="username" type="text"
+                    placeholder="Nom utilisateur">
+                </ion-input>
+            </ion-item>
 
-  <p text-center>Already have a account?</p>
-  <ion-button expand="full" color="primary" (click)="loginModal()">Login</ion-button>
+            <div class="message-error">
+                <div class="content-error" no-lines
+                    *ngIf="register_form.get('username').hasError('required') && register_form.get('username').touched">
+                    <div class="error"
+                        *ngIf="register_form.get('username').hasError('required') && register_form.get('username').touched">
+                        Veuillez saisir votre prenom
+                    </div>
+                </div>
+            </div>
 
+
+            <!-- item2 -->
+            <ion-item lines="none">
+                <ion-icon class="input-icon" color="primary" name="person" slot="start"></ion-icon>
+                <sup>*</sup>
+                <ion-input formControlName="displayName" type="text" placeholder="nom">
+                </ion-input>
+            </ion-item>
+
+            <div class="message-error">
+                <div class="content-error" no-lines
+                    *ngIf="register_form.get('displayName').hasError('required') && register_form.get('displayName').touched">
+                    <div class="error" *ngIf="register_form.get('displayName').hasError('required') && register_form.get('displayName').touched">
+                      Veuillez saisir votre nom
+                    </div>
+                </div>
+            </div>
+
+            <!-- item4 -->
+            <ion-item lines="none">
+                <ion-icon class="input-icon" color="primary" name="mail" slot="start"></ion-icon>
+                <sup>*</sup>
+                <ion-input formControlName="email" type="email"
+                    placeholder="Email"
+                    [class.error1]="!register_form.controls.email.valid && register_form.controls.email.dirty">
+                </ion-input>
+            </ion-item>
+
+            <div class="message-error">
+                <div class="content-error" no-lines
+                    *ngIf="(register_form.get('email').hasError('pattern') ||register_form.get('email').hasError('required') ) && register_form.get('email').touched">
+                    <div class="error" *ngIf="register_form.get('email').hasError('required') && register_form.get('email').touched">
+                      Veuillez saisir votre adresse e-mail
+                    </div>
+                    <div class="error" *ngIf="register_form.get('email').hasError('pattern') && register_form.get('email').touched">
+                      E-mail incorrect veuillez ressayer
+                    </div>
+                </div>
+            </div>
+            <!-- item6 -->
+            <ion-item lines="none">
+                <ion-icon class="input-icon" color="primary" name="lock" slot="start"></ion-icon>
+                <sup>*</sup>
+                <ion-input formControlName="password" type="password"
+                    placeholder="Mot de passe"></ion-input>
+            </ion-item>
+
+            <div class="error-message">
+                <div class="content-error" no-lines
+                    *ngIf="( register_form.get('password').hasError('minlength') || register_form.get('password').hasError('maxlength') || register_form.get('password').hasError('required') ) && register_form.get('password').touched">
+
+                    <div class="error" *ngIf="register_form.get('password').hasError('required') && register_form.get('password').touched">
+                      Veuillez saisir votre mot de passe
+                    </div>
+
+                    <div class="error" *ngIf="register_form.get('password').hasError('minlength') && register_form.get('password').touched">
+                      Votre mot de passe doit faire plus de 4 caractères
+                    </div>
+                    <div class="error" *ngIf="register_form.get('password').hasError('maxlength') && register_form.get('password').touched">
+                      Votre mot de passe doit faire moins de 20 caractères
+                    </div>
+
+                </div>
+            </div>
+
+            <ion-item style="display: none;">
+              <ion-label color="primary">Email</ion-label>
+              <ion-input type="email" formControlName="email_admin" ></ion-input>
+            </ion-item>
+        
+            <ion-item style="display: none;">
+              <ion-label color="primary">Password</ion-label>
+              <ion-input type="password" formControlName="password_admin" ></ion-input>
+            </ion-item>
+
+            <!-- bouton -->
+            <div class="log-in">
+                <ion-button [disabled]="!register_form.valid" (click)="onSubmit()" shape="round" color="primary" expand="block">
+                  aller !</ion-button>
+            </div>
+
+        </form>
+        <!-- fin form -->
+
+
+        <ion-text color="primary">
+            <p class="not-registered-text">déjà inscrit ?</p>
+        </ion-text>
+        <ion-button fill="clear" class="subscribe-btn" color="primary" [routerLink]="['/login']">
+          se connecter
+        </ion-button>
+    </ion-card-content>
+</ion-card>
 
 </ion-content>

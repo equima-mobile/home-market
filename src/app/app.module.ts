@@ -8,14 +8,22 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule,HttpClient } from '@angular/common/http';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { IonicStorageModule } from '@ionic/storage';
 import { LoginPage } from './login/login.page';
 import { RegisterPage } from './register/register.page';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { LoginPageModule } from './login/login.module';
 import { RegisterPageModule } from './register/register.module';
+
+
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/lang/','.json');
+}
 
 
 
@@ -35,7 +43,15 @@ import { RegisterPageModule } from './register/register.module';
     IonicStorageModule.forRoot(),
     ReactiveFormsModule,
     LoginPageModule,
-    RegisterPageModule
+    RegisterPageModule,
+    FormsModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    }),
       ],
   providers: [
     StatusBar,

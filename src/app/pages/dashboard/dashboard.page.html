@@ -3,11 +3,74 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Dashboard</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content padding>
-  <div *ngIf="user != undefined">
-      Welcome {{ user["first_name"]  }} {{ user["last_name"]  }}
+
+
+<div *ngIf="spinner" class="spinner_center">
+  <ion-spinner color="primary"></ion-spinner>
+  <label>chargement</label>
+</div>
+<ion-content *ngIf="oneUser">
+  <div class="container-background">
+    <img src="../assets/img/mon-compte-background.png" alt="mon-compte-background.png" />
   </div>
+  <div class="container-logo-img">
+    <!-- <img src="../assets/img/logo-img.png" alt="logo-img.png" /> -->
+    <img src="{{oneUser.avatar_urls}}" alt="oneUser.avatar_urls">
+  </div>
+  <ion-card class="container-profile">
+    <h1>{{oneUser.name}}</h1>
+    <ion-button (click)="mesinfo()" class="edit-btn" color="light" size="small"
+      fill="clear">
+      Modifier
+      <ion-icon slot="end" name="create"></ion-icon>
+    </ion-button>
+    <ion-card-content *ngIf="oneUser">
+      <!-- <p>
+        <ion-icon class="profile-icon" name="calendar"></ion-icon> 12-02-1992
+      </p>
+      <p>
+        <ion-icon class="profile-icon" name="call"></ion-icon> 0330218822
+      </p> -->
+      <p>
+        <ion-icon class="profile-icon" name="mail"></ion-icon> {{oneUser.email}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+  <ion-grid class="other-menu">
+    <ion-row>
+      <ion-col size="6" (click)="openNotifications()">
+        <ion-chip [routerLink]="['/tabs/mon_compte/mes-messages']">
+          <ion-icon name="notifications" size="large" color="primary"></ion-icon>
+          <ion-label>Mes messages
+            <ion-badge slot="end" *ngIf="lengthNotification || lengthNotification!=0">1
+            </ion-badge>
+          </ion-label>
+        </ion-chip>
+      </ion-col>
+      <ion-col size="6">
+        <ion-chip [routerLink]="['/mespreferences']">
+          <ion-icon name="settings" size="large" color="primary"></ion-icon>
+          <ion-label>Mes préférences </ion-label>
+        </ion-chip>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="6">
+        <ion-chip [routerLink]="['/tabs/mon_compte/mentions-legales/',lang]">
+          <ion-icon name="list-box" size="large" color="primary"></ion-icon>
+          <ion-label>Mentions légales</ion-label>
+
+        </ion-chip>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="log_out">
+    <ion-button (click)="logout()" fill="clear"> Se déconnecter<ion-icon slot="end"
+        name="power"></ion-icon>
+    </ion-button>
+  </div>
+
 </ion-content>

@@ -8,6 +8,7 @@ import { LoginPageRoutingModule } from './login-routing.module';
 
 import { LoginPage } from './login.page';
 import {ReactiveFormsModule} from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     IonicModule,
     LoginPageRoutingModule,
     ReactiveFormsModule,
+    TranslateModule
   ],
   declarations: [LoginPage]
 })
