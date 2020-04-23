@@ -11,12 +11,12 @@
     <ion-row>
         <ion-col size="4">
             <img src="../assets/img/logo-img.png" alt="logo-img.png" /></ion-col>
-        <ion-col size="8">
+        <ion-col size="8">                                                                   
 
             <!-- <img class="logo-text-white" src="../assets/img/logo-text-white.png" alt="logo-text.png" /> -->
 
             <ion-text color="light">
-                <h1>bienvenue</h1>
+              <h1>{{'login_signup.bienvenue' | translate}}</h1>
             </ion-text>
         </ion-col>
     </ion-row>
@@ -26,7 +26,7 @@
     <ion-card-header>
         <ion-card-title>
             <ion-text color="primary">
-              inscription
+              {{'login_signup.inscription' | translate}}
             </ion-text>
         </ion-card-title>
     </ion-card-header>
@@ -40,7 +40,7 @@
                 <ion-icon class="input-icon" color="primary" name="person" slot="start"></ion-icon>
                 <sup>*</sup>
                 <ion-input formControlName="username" type="text"
-                    placeholder="Nom utilisateur">
+                    placeholder="{{'login_signup.id_inscrit' | translate}}">
                 </ion-input>
             </ion-item>
 
@@ -49,7 +49,7 @@
                     *ngIf="register_form.get('username').hasError('required') && register_form.get('username').touched">
                     <div class="error"
                         *ngIf="register_form.get('username').hasError('required') && register_form.get('username').touched">
-                        Veuillez saisir votre prenom
+                        {{'modifierMail.meserreurid_inscrit' | translate}}
                     </div>
                 </div>
             </div>
@@ -59,7 +59,7 @@
             <ion-item lines="none">
                 <ion-icon class="input-icon" color="primary" name="person" slot="start"></ion-icon>
                 <sup>*</sup>
-                <ion-input formControlName="displayName" type="text" placeholder="nom">
+                <ion-input formControlName="displayName" type="text" placeholder="{{'login_signup.nomCompte' | translate}}">
                 </ion-input>
             </ion-item>
 
@@ -67,7 +67,7 @@
                 <div class="content-error" no-lines
                     *ngIf="register_form.get('displayName').hasError('required') && register_form.get('displayName').touched">
                     <div class="error" *ngIf="register_form.get('displayName').hasError('required') && register_form.get('displayName').touched">
-                      Veuillez saisir votre nom
+                      {{'modifierMail.meserreurancienprenom' | translate}}
                     </div>
                 </div>
             </div>
@@ -77,7 +77,7 @@
                 <ion-icon class="input-icon" color="primary" name="mail" slot="start"></ion-icon>
                 <sup>*</sup>
                 <ion-input formControlName="email" type="email"
-                    placeholder="Email"
+                    placeholder="{{'login_signup.email_inscrit' | translate}}"
                     [class.error1]="!register_form.controls.email.valid && register_form.controls.email.dirty">
                 </ion-input>
             </ion-item>
@@ -86,10 +86,10 @@
                 <div class="content-error" no-lines
                     *ngIf="(register_form.get('email').hasError('pattern') ||register_form.get('email').hasError('required') ) && register_form.get('email').touched">
                     <div class="error" *ngIf="register_form.get('email').hasError('required') && register_form.get('email').touched">
-                      Veuillez saisir votre adresse e-mail
+                      {{'modifierMail.meserreurmailinscrit' | translate}}
                     </div>
                     <div class="error" *ngIf="register_form.get('email').hasError('pattern') && register_form.get('email').touched">
-                      E-mail incorrect veuillez ressayer
+                      {{'modifierMail.mesvalidemail' | translate}}
                     </div>
                 </div>
             </div>
@@ -98,7 +98,7 @@
                 <ion-icon class="input-icon" color="primary" name="lock" slot="start"></ion-icon>
                 <sup>*</sup>
                 <ion-input formControlName="password" type="password"
-                    placeholder="Mot de passe"></ion-input>
+                    placeholder="{{'login_signup.mdpInscription' | translate}}"></ion-input>
             </ion-item>
 
             <div class="error-message">
@@ -106,14 +106,14 @@
                     *ngIf="( register_form.get('password').hasError('minlength') || register_form.get('password').hasError('maxlength') || register_form.get('password').hasError('required') ) && register_form.get('password').touched">
 
                     <div class="error" *ngIf="register_form.get('password').hasError('required') && register_form.get('password').touched">
-                      Veuillez saisir votre mot de passe
+                      {{'modifierMail.meserreurancienmdp' | translate}}
                     </div>
 
                     <div class="error" *ngIf="register_form.get('password').hasError('minlength') && register_form.get('password').touched">
-                      Votre mot de passe doit faire plus de 4 caractères
+                      {{'modifierMail.meserreurancienmdpmin' | translate}}
                     </div>
                     <div class="error" *ngIf="register_form.get('password').hasError('maxlength') && register_form.get('password').touched">
-                      Votre mot de passe doit faire moins de 20 caractères
+                      {{'modifierMail.meserreurancienmdpmax' | translate}}
                     </div>
 
                 </div>
@@ -132,7 +132,7 @@
             <!-- bouton -->
             <div class="log-in">
                 <ion-button [disabled]="!register_form.valid" (click)="onSubmit()" shape="round" color="primary" expand="block">
-                  aller !</ion-button>
+                  {{'login_signup.boutonAllerInscription' | translate}} !</ion-button>
             </div>
 
         </form>
@@ -140,10 +140,10 @@
 
 
         <ion-text color="primary">
-            <p class="not-registered-text">déjà inscrit ?</p>
+            <p class="not-registered-text">{{'login_signup.dejaInscrit' | translate}} ?</p>
         </ion-text>
         <ion-button fill="clear" class="subscribe-btn" color="primary" [routerLink]="['/login']">
-          se connecter
+          {{'login_signup.seConnecter' | translate}}
         </ion-button>
     </ion-card-content>
 </ion-card>

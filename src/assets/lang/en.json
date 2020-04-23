@@ -9,9 +9,10 @@
     },
     "search_property":{
         "message": "Fill in a place to find your property",
-        "btn_search":"Research"
+        "btn_search":"Research",
+        "placeholder":"Destination ou adresse"
     },
-    "fidelite": {
+    "login_signup": {
         "fermer":"close",
         "pasInscrit": "not registered",
         "bienvenue": "welcome",
@@ -27,15 +28,15 @@
         "nomCompte": "Name",
         "prenomCompte": "First name",
         "dateNaissance": "Date of birth",
-        "mailInscription": "E-mail",
-        "tel": "Phone number",
+        "id_inscrit": "Identifiant",
+        "email_inscrit":"Email",
         "mdpInscription": "Password",
         "boutonAllerInscription": "go",
         "messageConfirmation": "a confirmation e-mail has been sent. click on the link present in the e-mail to confirm your registration.",
         "messageConfirmationModifMail":"a confirmation email has been sent to you click on the link in the email to confirm the change",
         "boutonRecommence": "Restart",
         "connexion": "connection",
-        "mailConnexion": "E-mail adress",
+        "id_mailConnexion": "Identifiant ou adresse e-mail",
         "mdpConnexion": "Password",
         "boutonAllerConnexion": "go",
         "votreStatut": "your status",
@@ -77,7 +78,8 @@
         "original": "Read on the site",
         "infiniteScroll":"Loading...",
         "connexion":"Check your internet connection",
-        "error404":"Site not found"
+        "error404":"Site not found",
+        "more_data":"Loading more data..."
     },
     "compte": {
         "mesInformations": "my informations",
@@ -175,42 +177,15 @@
         "anglais":"english",
         "push":"Enable push notification"
      },
-     "mesAchats":{
-        "historiqueAchat":"purchase history",
-        "ticket":"ticket",
-        "heure": "hour",
-        "numeroCarte":"card number",
-        "points":"points"
-    },
-    "prendreRdv":{
-        "prochainRDV":"next meeting",
-        "reporter":"report",
-        "annuler":"cancel",
-        "aucunRDV": "no appointments",
-        "historiqueRDVpasses": "past appointments history",
-        "aucun": "none",
-        "heuredispo": "hour available",
-        "aucuneheuredispo": "no hour available",
-        "enregistrer": "save",
-        "a":"at",
-        "ajoutRDV":"add appointment",
-        "description": "When you reach Gold status in your loyalty program, you will have access to an exclusive benefit: the Personal Shopper experience! This unique experience allows you to have a personalized shopping, and targeted according to your profile and the During which you will benefit from the expert advice of our experts, we will take the time together to answer all your questions, and to guide you on a wide choice of clothing adapted to your morphology and to your tastes at the end of this experiment. you will receive a 15% discount on the total amount of your purchases (valid only on that day).",
-        "conditions": "Terms",
-        "EtreMembreGold": "Be a GOLD member",
-        "PriseRDVuniquement": " Appointment only via the application, « My Account » section",
-        "OffreStrictement": "Offer strictly personal: another person will not be able to benefit from it",
-        "AvantageVlalble": "Benefit valid only once. Once the experience is complete, the benefit will no longer be available on the app.",
-        "AnnulationReport": "Cancellation or postponement at least 48 hours before the agreed date (by phone, email or application)",
-        "DureeSeance": "Duration of the session: between 1h and 2h"
-    },
     "modifierMail":{
         "annuler":"Cancel",
         "modifier":"Edit mail",
         "titre": "You can change your email address here",
         "soustitre": "The new address will be used at your next login",
         "ancienmail": "Old Email Address",
-        "meserreurancienmail": "Please enter your email address",
-        "mesvalideancienmail": "Invalid e-mail please try again",
+        "meserreurancienmail": "Please enter your id or email address",
+        "meserreurmailinscrit":"Please enter your email address",
+        "mesvalideancienmail": "Invalid e-mail or id please try again",
         "nouveaumail": "New email address",
         "meserreurnouveaumail":"Please enter your new email address",
         "mesvalidenouveaumail":"Invalid email address",
@@ -228,6 +203,9 @@
         "mesErreurAncienContactMin": "Your phone number must be 10 characters",
         "mesErreurAncienContactPattern": "Please enter the correct number",
         "meserreurancienmdp": "Please enter your password",
+        "meserreurid_inscrit":"Veuillez saisir votre identifiant",
+        "mesvalidemail": "Invalid e-mail please try again",
+
         "meserreurancienmdpmax": "Your password must be less than 20 characters",
         "meserreurancienmdpmin": "Your password must be longer than 4 characters"
     }

@@ -8,6 +8,7 @@ import { RegisterPageRoutingModule } from './register-routing.module';
 
 import { RegisterPage } from './register.page';
 import {ReactiveFormsModule} from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     IonicModule,
     RegisterPageRoutingModule,
     ReactiveFormsModule,
+    TranslateModule
   ],
   declarations: [RegisterPage]
 })

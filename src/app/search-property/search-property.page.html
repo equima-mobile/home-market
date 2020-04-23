@@ -29,7 +29,7 @@
       <div class="recherche">
         <h4>{{'search_property.message' | translate}}</h4>
         <ion-item class="lieu">
-          <ion-input placeholder="Lieu" type="text" ngModel #R id="adresse" name="Rue" (keyup)='findbystreet("adresse",R.value)'></ion-input>
+          <ion-input placeholder="{{'search_property.placeholder' | translate}}" type="text" ngModel #R id="adresse" name="Rue" (keyup)='findbystreet("adresse",R.value)'></ion-input>
         </ion-item>
       </div>
       <div class="boutonrech">

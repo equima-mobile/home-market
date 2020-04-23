@@ -134,22 +134,18 @@
       .iconsearch{
           width: 60px;
           height: 60px;
-          border-radius: 50%;
-          border:2px solid var(--ion-color-primary);
+        //   border-radius: 50%;
+        //   border:2px solid var(--ion-color-primary);
           margin:0 auto;
           display:flex;
           justify-content: center;
           align-items: center;
-          background: #ffffff;
+        //   background: #ffffff;
           margin-bottom:35px;
           margin-top:10px;
          
       }
-      .iconsearch img{
-          width: 30px;
-          color: #1B5EA6;
-
-      }
+      
       .boutonrech{
         background: rgba(255, 255, 255, 1);
         padding: 10px ;
@@ -165,8 +161,8 @@
     }
       
        ion-icon {
-        color: rgb(15, 14, 14);
-        //background-color: #ff6a8e!important;
+        color: rgba(255, 255, 255, 1);
+        font-size: 40px; //Preferred size here
     }
 
 button[disabled], [ion-button][disabled]{
@@ -177,7 +173,6 @@ ion-toolbar {
     padding-right: 20px;
 }
 
-
-ion-icon {
-    font-size: 40px; //Preferred size here
-}
+ion-content {
+    --background: url("/assets/img/home-background.png")  no-repeat center center/cover;
+  }

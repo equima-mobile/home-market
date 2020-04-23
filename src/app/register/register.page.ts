@@ -17,7 +17,6 @@ export class RegisterPage implements OnInit {
                public authenticationService: AuthentificationService,
                private router: Router,
                public loadingController: LoadingController,
-               private modalController: ModalController,
                private alertService: AlertService) { }
 
   ngOnInit() {
@@ -66,10 +65,8 @@ export class RegisterPage implements OnInit {
                 console.log(error);
               },
               () => {
-                this.dismissRegister();
-                loading.dismiss();
-                this.modalController.dismiss();
                 this.router.navigateByUrl('dashboard');
+                loading.dismiss();
               }
             );
             this.alertService.presentToast('Inscription réussie');
@@ -88,20 +85,6 @@ export class RegisterPage implements OnInit {
         console.log(err);
       }
     )
-  }
-
-   // Dismiss Register Modal
-   dismissRegister() {
-    this.modalController.dismiss();
-  }
-
-  // On Login button tap, dismiss Register modal and open login Modal
-  async loginModal() {
-    this.dismissRegister();
-    const loginModal = await this.modalController.create({
-      component: LoginPage,
-    });
-    return await loginModal.present();
   }
 
   

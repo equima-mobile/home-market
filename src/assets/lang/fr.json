@@ -8,13 +8,14 @@
        "compte": "mon compte"
    },
    "search_property":{
-       "message": "Renseignez un lieu pour rechercher votre propriété",
-       "btn_search":"Recherche"
+       "message": "Définir l'emplacement",
+       "btn_search":"Recherche",
+       "placeholder":"Destination ou adresse"
    },
-   "fidelite": {
+   "login_signup": {
        "fermer":"fermer",
        "pasInscrit": "pas encore inscrit",
-       "bienvenue": "bienvenue",
+       "bienvenue": "Bienvenue",
        "mdpOublie": "mot de passe oublié",
        "inscrire" : "s'inscrire",
        "dejaInscrit":"déjà inscrit",
@@ -27,15 +28,15 @@
        "nomCompte": "Nom",
        "prenomCompte": "Prénom",
        "dateNaissance": "Date de naissance",
-       "mailInscription": "Email",
-       "tel": "Numéro de téléphone",
+       "id_inscrit": "Identifiant",
+       "email_inscrit":"Email",
        "mdpInscription": "Mot de passe",
        "boutonAllerInscription": "aller",
        "messageConfirmation": "un email de confirmation vous a été envoyé. cliquez sur le lien présent dans l'email pour confirmer votre inscription",
        "messageConfirmationModifMail": "un email de confirmation vous a été envoyé. cliquez sur le lien présent dans l'email pour confirmer la modification",
        "boutonRecommence": "Recommencer",
-       "connexion": "connexion",
-       "mailConnexion": "Adresse email",
+       "connexion": "Connexion",
+       "id_mailConnexion": "Identifiant ou adresse e-mail",
        "mdpConnexion": "Mot de passe",
        "boutonAllerConnexion": "aller",
        "votreStatut": "votre statut",
@@ -77,7 +78,8 @@
        "original": "Lire sur le site",
        "infiniteScroll":"Chargement...",
        "connexion":"Verifiez votre connexion internet",
-       "error404":"Site introuvable"
+       "error404":"Site introuvable",
+       "more_data":"Loading more data..."
    },
    "compte": {
        "mesInformations": "mes informations",
@@ -176,43 +178,15 @@
         "anglais":"anglais",
         "push": "Activer notification push"
     },
-    "mesAchats":{
-        "historiqueAchat":"historique des achats",
-        "ticket":"ticket",
-        "heure": "heure",
-        "numeroCarte":"numéro de carte",
-        "points":"points"
-    },
-    "prendreRdv":{
-        "prochainRDV":"prochain rendez-vous",
-        "reporter":"reporter",
-        "annuler":"annuler",
-        "aucunRDV": "aucun rendez-vous",
-        "historiqueRDVpasses": "historique des rendez-vous passés",
-        "aucun": "aucun",
-        "heuredispo": "heure disponible",
-        "aucuneheuredispo": "aucune heure disponible",
-        "enregistrer": "enregistrer",
-        "a":"à",
-        "ajoutRDV":"ajout RDV",
-        "description": "Lorsque vous atteignez le statut Gold dans votre programme de fidélité, vous aurez accès à un avantage exclusif : l’expérience Personal Shopper ! Cette expérience inédite vous permet d’avoir un shopping personnalisé, et ciblé selon votre profil et au cours de laquelle vous bénéficierez des conseils avisés de nos experts. Nous prendrons ensemble le temps de répondre à toutes vos questions, et de vous orienter sur un large choix vestimentaire adapté à votre morphologie et à vos goûts vestimentaires. A l’issue de cette expérience, vous bénéficierez d’une remise de 15% sur le montant total de vos achats (valable uniquement ce jour-là).",
-        "conditions": "Conditions",
-        "EtreMembreGold": "Être membre GOLD",
-        "PriseRDVuniquement": "Prise de RDV uniquement via l’application, rubrique « Mon Compte »",
-        "OffreStrictement": "Offre strictement personnelle : une autre personne ne pourra pas en bénéficier",
-        "AvantageVlalble": "Avantage valable une seule fois seulement. Une fois l’expérience achevée, l’avantage ne sera plus disponible sur l’application.",
-        "AnnulationReport": "Annulation ou report au minimum 48h avant la date convenue (par téléphone, mail ou application)",
-        "DureeSeance": "Durée de la séance : entre 1h et 2h"
-
-    },
     "modifierMail":{
         "annuler":"Annuler",
         "modifier":"Modifier mail",
         "titre": "Vous pouvez modifier votre adresse mail ici",
         "soustitre": "La nouvelle adresse sera utilisée lors de votre prochaine connexion",
         "ancienmail": "Ancienne Adresse mail",
-        "meserreurancienmail": "Veuillez saisir votre adresse e-mail",
-        "mesvalideancienmail": "E-mail incorrect veuillez ressayer",
+        "meserreurancienmail": "Veuillez saisir votre identifiant ou adresse e-mail",
+        "mesvalideancienmail": "E-mail ou Identifiant incorrect veuillez ressayer",
+        "mesvalidemail": "E-mail incorrect veuillez ressayer",
         "nouveaumail": "Nouvelle adresse mail",
         "meserreurnouveaumail":"Veuillez saisir votre nouvelle adresse mail",
         "mesvalidenouveaumail":"Adresse mail non valide",
@@ -230,6 +204,8 @@
         "mesErreurAncienContactMin": "Votre numéro de téléphone doit faire 10 caractères",
         "mesErreurAncienContactPattern": "Veuillez saisir le bon numéro",
         "meserreurancienmdp": "Veuillez saisir votre mot de passe",
+        "meserreurid_inscrit":"Veuillez saisir votre identifiant",
+        "meserreurmailinscrit": "Veuillez saisir votre adresse e-mail",
 
         "meserreurancienmdpmax": "Votre mot de passe doit faire moins de 20 caractères",
         "meserreurancienmdpmin": "Votre mot de passe doit faire plus de 4 caractères"

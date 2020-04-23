@@ -13,7 +13,7 @@
           <ion-col size="8">
               <!-- <img class="logo-text-white" src="../assets/img/logo-text-white.png" alt="logo-text.png" /> -->
               <ion-text color="light">
-                  <h1>{{'fidelite.bienvenue' | translate}}</h1>
+                  <h1>{{'login_signup.bienvenue' | translate}}</h1>
               </ion-text>
           </ion-col>
       </ion-row>
@@ -22,7 +22,7 @@
       <ion-card-header>
           <ion-card-title>
               <ion-text color="primary">
-                connexion
+                {{'login_signup.connexion' | translate}}
               </ion-text>
           </ion-card-title>
       </ion-card-header>
@@ -30,7 +30,7 @@
           <form [formGroup]="login_form">
               <ion-item lines="none">
                   <ion-icon class="input-icon" color="primary" name="person" slot="start"></ion-icon>
-                  <ion-input type="username" placeholder="Nom utilisateur"
+                  <ion-input type="username" placeholder="{{'login_signup.id_mailConnexion' | translate}}"
                       formControlName="username"
                       [class.error1]="!login_form.controls.username.valid && login_form.controls.username.dirty">
                   </ion-input>
@@ -39,16 +39,16 @@
                   <div class="content-error" no-lines
                       *ngIf="( login_form.get('username').hasError('minlength') || login_form.get('username').hasError('pattern') ||login_form.get('username').hasError('required') ) && login_form.get('username').touched">
                       <div class="error" *ngIf="login_form.get('username').hasError('required') && login_form.get('username').touched">
-                        Veuillez saisir votre adresse e-mail
+                        {{'modifierMail.meserreurancienmail' | translate}}
                       </div>
                       <div class="error" *ngIf="login_form.get('username').hasError('pattern') && login_form.get('username').touched">
-                        E-mail incorrect veuillez ressayer
+                        {{'modifierMail.mesvalideancienmail' | translate}}
                       </div>
                   </div>
               </div>
               <ion-item lines="none">
                   <ion-icon class="input-icon" color="primary" name="lock" slot="start"></ion-icon>
-                  <ion-input type="password" placeholder="Mot de passe"
+                  <ion-input type="password" placeholder="{{'login_signup.mdpConnexion' | translate}}"
                       formControlName="password"
                       [class.error1]="!login_form.controls.password.valid && login_form.controls.password.dirty">
                   </ion-input>
@@ -57,31 +57,31 @@
               <div class="content-error" no-lines
                   *ngIf="( login_form.get('password').hasError('minlength') || login_form.get('password').hasError('pattern') ||login_form.get('password').hasError('required') ) && login_form.get('password').touched">
                   <div class="error" *ngIf="login_form.get('password').hasError('required') && login_form.get('password').touched">
-                    Veuillez saisir votre mot de passe actuel
+                    {{'modifierMail.ancienmotdepasse' | translate}}
                   </div>
                   <div class="error" *ngIf="login_form.get('password').hasError('minlength') && login_form.get('password').touched">
-                    Votre mot de passe doit faire plus de 4 caractères
+                    {{'modifierMail.mesmincaractere' | translate}}
                   </div>
                   <div class="error" *ngIf="login_form.get('password').hasError('maxlength') && login_form.get('password').touched">
-                    Maximum 12 caractères
+                    {{'modifierMail.mesmaxcaractere' | translate}}
                   </div>
               </div>
           </div>
           </form>
-          <!-- <div class="forgot-password">
+          <div class="forgot-password">
               <ion-button fill="clear" color="primary" size="small" (click)="popUpResetPassword()">
-                  {{'fidelite.mdpOublie' | translate}}?</ion-button>
-          </div> -->
+                  {{'login_signup.mdpOublie' | translate}}?</ion-button>
+          </div>
           <div class="log-in">
               <ion-button (click)="login()" shape="round" color="primary" expand="block">
-                  <ion-label>aller !</ion-label>
+                  <ion-label>{{'login_signup.boutonAllerInscription' | translate}}</ion-label>
                   <ion-spinner *ngIf="spinner_button" name="dots" color="primary-contrast"></ion-spinner>
               </ion-button>
           </div>
           <ion-text color="primary">
-              <p class="not-registered-text">pas encore inscrit ?</p>
+              <p class="not-registered-text">{{'login_signup.pasInscrit' | translate}} ?</p>
           </ion-text>
-          <ion-button fill="clear" class="subscribe-btn" color="primary" [routerLink]="['/register']">s'inscrire 
+          <ion-button fill="clear" class="subscribe-btn" color="primary" [routerLink]="['/register']">{{'login_signup.inscrire' | translate}}
           </ion-button>
       </ion-card-content>
   </ion-card>

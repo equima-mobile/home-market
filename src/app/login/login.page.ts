@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Validators, FormBuilder, FormGroup, FormControl} from '@angular/forms';
 import {Router} from '@angular/router';
-import {LoadingController, ModalController} from '@ionic/angular';
+import {LoadingController} from '@ionic/angular';
 import {DataService} from '../shared/data.service';
 import { AuthentificationService } from '../shared/authentification.service';
-import { RegisterPage } from '../register/register.page';
 import { AlertService } from '../shared/alert.service';
 
 @Component({
@@ -20,7 +19,6 @@ export class LoginPage implements OnInit {
     public authenticationService: AuthentificationService,
     public dataService: DataService,
     private router: Router,
-    private modalController: ModalController,
     private alertService: AlertService) { }
 
     ngOnInit() {
@@ -58,19 +56,6 @@ export class LoginPage implements OnInit {
       });
       
       }
-
-      dismissLogin() {
-        this.modalController.dismiss();
-      }
-
-      // On Register button tap, dismiss login modal and open register modal
-    async registerModal() {
-      this.dismissLogin();
-      const registerModal = await this.modalController.create({
-        component: RegisterPage
-      });
-      return await registerModal.present();
-    }
 
 
 

@@ -9,7 +9,7 @@
 
 <div *ngIf="spinner" class="spinner_center">
   <ion-spinner color="primary"></ion-spinner>
-  <label>chargement</label>
+  <label>{{'spinner' | translate}}</label>
 </div>
 <ion-content *ngIf="oneUser">
   <div class="container-background">
@@ -23,7 +23,7 @@
     <h1>{{oneUser.name}}</h1>
     <ion-button (click)="mesinfo()" class="edit-btn" color="light" size="small"
       fill="clear">
-      Modifier
+      {{'compte.modifier' | translate}}
       <ion-icon slot="end" name="create"></ion-icon>
     </ion-button>
     <ion-card-content *ngIf="oneUser">
@@ -43,7 +43,7 @@
       <ion-col size="6" (click)="openNotifications()">
         <ion-chip [routerLink]="['/tabs/mon_compte/mes-messages']">
           <ion-icon name="notifications" size="large" color="primary"></ion-icon>
-          <ion-label>Mes messages
+          <ion-label>{{'compte.mesMessages' | translate}}
             <ion-badge slot="end" *ngIf="lengthNotification || lengthNotification!=0">1
             </ion-badge>
           </ion-label>
@@ -52,7 +52,7 @@
       <ion-col size="6">
         <ion-chip [routerLink]="['/mespreferences']">
           <ion-icon name="settings" size="large" color="primary"></ion-icon>
-          <ion-label>Mes préférences </ion-label>
+          <ion-label>{{'compte.mesPreferences' | translate}}</ion-label>
         </ion-chip>
       </ion-col>
     </ion-row>
@@ -61,14 +61,14 @@
       <ion-col size="6">
         <ion-chip [routerLink]="['/tabs/mon_compte/mentions-legales/',lang]">
           <ion-icon name="list-box" size="large" color="primary"></ion-icon>
-          <ion-label>Mentions légales</ion-label>
+          <ion-label>{{'compte.mentionsLegal' | translate}}</ion-label>
 
         </ion-chip>
       </ion-col>
     </ion-row>
   </ion-grid>
   <div class="log_out">
-    <ion-button (click)="logout()" fill="clear"> Se déconnecter<ion-icon slot="end"
+    <ion-button (click)="logout()" fill="clear">{{'compte.seDeconnecter' | translate}}<ion-icon slot="end"
         name="power"></ion-icon>
     </ion-button>
   </div>
