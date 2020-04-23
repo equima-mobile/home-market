@@ -8,6 +8,8 @@ import { AuthentificationService } from './shared/authentification.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Storage } from '@ionic/storage';
 
+import { Environment } from '@ionic-native/google-maps';
+
 
 @Component({
   selector: 'app-root',
@@ -73,6 +75,16 @@ export class AppComponent {
       this.splashScreen.hide();
       this.recupLang();
       this.authenticationService.getToken();
+
+
+      Environment.setEnv({
+        // api key for server
+        'API_KEY_FOR_BROWSER_RELEASE': 'AIzaSyCgwW03xXNdhhzhXffpHdaA0DpRUSbaEFM',
+ 
+        // api key for local development
+        'API_KEY_FOR_BROWSER_DEBUG': 'AIzaSyCgwW03xXNdhhzhXffpHdaA0DpRUSbaEFM'
+      });
+
     });
   }
 
@@ -85,11 +97,14 @@ export class AppComponent {
 
   recupLang() {
     this.getLang().then((result) => {
+      console.log('LangPromise',result)
       this.langPromise = result;
       if (this.langPromise !== 'fr') {
         this.translate.use('en');
+        console.log('en')
       } else {
         this.translate.use('fr');
+        console.log('fr')
       }
     }).catch(err=>{
       console.log(err);
@@ -100,8 +115,10 @@ export class AppComponent {
     return new Promise(resolve => {
       this.storage.get('lang').then((val) => {
         this.langStorage = val;
+        console.log('Lang',this.langStorage);
         if (this.langStorage == null || this.langStorage == undefined) {
             this.langPhone = 'en';
+            console.log('lang phone',this.langPhone)
             this.storage.set('lang', this.langPhone);
             resolve(this.langPhone);
         } else {

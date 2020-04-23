@@ -1,11 +1,12 @@
 {
    "name": "fr",
    "spinner":"Chargement...",
-   "tab": {
-       "plan": "accueil",
-       "fidelite": "fidélité",
-       "actus" : "actus",
-       "compte": "mon compte"
+   "menu": {
+       "home": "Accueil",
+       "actus": "Actus",
+       "programme" : "Programme",
+       "agent": "Agents",
+       "moncompte":"Mon compte"
    },
    "search_property":{
        "message": "Définir l'emplacement",

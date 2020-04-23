@@ -27,6 +27,7 @@ export class MespreferencesPage implements OnInit {
   langAffiche(){
     this.storage.get("lang").then((res)=>{
       this.langSelect=res;
+      console.log('Lang Préférence',this.langSelect);
       if(this.langSelect=="fr"){
         this.placeholder="français";
       }else{
@@ -43,10 +44,12 @@ export class MespreferencesPage implements OnInit {
       this.langSelct=this.langSelect;
       if(this.langSelct=="fr"){
         this.langChoix="fr";
+        console.log('langChoix',this.langChoix);
         this.translate.use(this.langChoix);
         resolve(this.langChoix);
       }else{
         this.langChoix="en";
+        console.log('langChoix',this.langChoix);
         this.translate.use(this.langChoix);
         resolve(this.langChoix);
       }
@@ -55,6 +58,7 @@ export class MespreferencesPage implements OnInit {
 
   langStorag(){
     this.langPref().then((val)=>{
+      console.log('Onchange lang',val);
       this.langueSt=val;
       this.storage.set('lang', this.langueSt);
     }).catch(err=>{

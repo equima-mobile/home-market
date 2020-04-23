@@ -1,16 +1,17 @@
 {
     "name": "en",
     "spinner":"Loading...",
-    "tab": {
-        "plan": "home",
-        "fidelite": "fidelity",
-        "actus" : "actus",
-        "compte": "my account"
+    "menu": {
+        "home": "Home",
+        "actus": "News",
+        "programme" : "Program",
+        "agent": "Agents",
+        "moncompte":"My account"
     },
     "search_property":{
-        "message": "Fill in a place to find your property",
+        "message": "Define location",
         "btn_search":"Research",
-        "placeholder":"Destination ou adresse"
+        "placeholder":"Destination or address"
     },
     "login_signup": {
         "fermer":"close",
@@ -36,7 +37,7 @@
         "messageConfirmationModifMail":"a confirmation email has been sent to you click on the link in the email to confirm the change",
         "boutonRecommence": "Restart",
         "connexion": "connection",
-        "id_mailConnexion": "Identifiant ou adresse e-mail",
+        "id_mailConnexion": "Username or email address",
         "mdpConnexion": "Password",
         "boutonAllerConnexion": "go",
         "votreStatut": "your status",

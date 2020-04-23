@@ -4,19 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AgentPageRoutingModule } from './agent-routing.module';
+import { LocationPageRoutingModule } from './location-routing.module';
 
-import { AgentPage } from './agent.page';
-import { TranslateModule } from '@ngx-translate/core';
+import { LocationPage } from './location.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AgentPageRoutingModule,
-    TranslateModule
+    LocationPageRoutingModule
   ],
-  declarations: [AgentPage]
+  declarations: [LocationPage]
 })
-export class AgentPageModule {}
+export class LocationPageModule {}
