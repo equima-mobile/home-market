@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { ListagentsPageRoutingModule } from './listagents-routing.module';
 
 import { ListagentsPage } from './listagents.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ListagentsPageRoutingModule
+    ListagentsPageRoutingModule,
+    TranslateModule
   ],
   declarations: [ListagentsPage]
 })

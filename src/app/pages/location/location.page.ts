@@ -12,6 +12,8 @@ import {
   GoogleMapsAnimation,
   MyLocation
 } from '@ionic-native/google-maps';
+
+import { ActivatedRoute } from '@angular/router';
  
 
 @Component({
@@ -22,17 +24,41 @@ import {
 export class LocationPage implements OnInit {
   map: GoogleMap;
   address:string;
- 
+  location:any;
+  latitude:any;
+  longitude:any;
   constructor(public toastCtrl: ToastController,
-              private platform: Platform) { }
+              private route: ActivatedRoute,
+              private platform: Platform,) { }
 
   ngOnInit() {
+    this.location = this.route.snapshot.paramMap.get('location');
+    console.log('location',this.location);
+    this.GetCoordonnee(this.location);
+
     // Since ngOnInit() is executed before `deviceready` event,
     // you have to wait the event.
     this.platform.ready();
     this.loadMap();
 }
 
+
+GetCoordonnee(location){
+  let arr = location.split('"');
+  arr.forEach(function (a) {
+    let str = a.toString();
+    console.log('Res',str);
+  });
+
+  let cordonnee=arr[3].split(',');
+    console.log('coordonnee',cordonnee);
+    this.latitude=cordonnee[0];
+    this.longitude=cordonnee[1];
+
+}
+
+
+//Google maps
 loadMap() {
   this.map = GoogleMaps.create('map_canvas', {
     // camera: {

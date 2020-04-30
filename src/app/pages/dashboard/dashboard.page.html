@@ -13,14 +13,14 @@
 </div>
 <ion-content *ngIf="oneUser">
   <div class="container-background">
-    <img src="../assets/img/mon-compte-background.png" alt="mon-compte-background.png" />
+    <img src="../assets/img/mon_compte-background.png" alt="mon_compte-background.png" />
   </div>
   <div class="container-logo-img">
     <!-- <img src="../assets/img/logo-img.png" alt="logo-img.png" /> -->
     <img src="{{oneUser.avatar_urls}}" alt="oneUser.avatar_urls">
   </div>
   <ion-card class="container-profile">
-    <h1>{{oneUser.name}}</h1>
+    <h1>{{oneUser.user_display_name}}</h1>
     <ion-button (click)="mesinfo()" class="edit-btn" color="light" size="small"
       fill="clear">
       {{'compte.modifier' | translate}}
@@ -40,13 +40,11 @@
   </ion-card>
   <ion-grid class="other-menu">
     <ion-row>
-      <ion-col size="6" (click)="openNotifications()">
-        <ion-chip [routerLink]="['/tabs/mon_compte/mes-messages']">
-          <ion-icon name="notifications" size="large" color="primary"></ion-icon>
-          <ion-label>{{'compte.mesMessages' | translate}}
-            <ion-badge slot="end" *ngIf="lengthNotification || lengthNotification!=0">1
-            </ion-badge>
-          </ion-label>
+      <ion-col size="6">
+        <ion-chip [routerLink]="['/mentions-legales/']">
+          <ion-icon name="list" size="large" color="primary"></ion-icon>
+          <ion-label>{{'compte.mentionsLegal' | translate}}</ion-label>
+
         </ion-chip>
       </ion-col>
       <ion-col size="6">
@@ -57,15 +55,17 @@
       </ion-col>
     </ion-row>
 
-    <ion-row>
-      <ion-col size="6">
-        <ion-chip [routerLink]="['/tabs/mon_compte/mentions-legales/',lang]">
-          <ion-icon name="list-box" size="large" color="primary"></ion-icon>
-          <ion-label>{{'compte.mentionsLegal' | translate}}</ion-label>
-
+    <!-- <ion-row>
+      <ion-col size="6" (click)="openNotifications()">
+        <ion-chip [routerLink]="['/tabs/mon_compte/mes-messages']">
+          <ion-icon name="notifications" size="large" color="primary"></ion-icon>
+          <ion-label>{{'compte.mesMessages' | translate}}
+            <ion-badge slot="end" *ngIf="lengthNotification || lengthNotification!=0">1
+            </ion-badge>
+          </ion-label>
         </ion-chip>
       </ion-col>
-    </ion-row>
+    </ion-row> -->
   </ion-grid>
   <div class="log_out">
     <ion-button (click)="logout()" fill="clear">{{'compte.seDeconnecter' | translate}}<ion-icon slot="end"

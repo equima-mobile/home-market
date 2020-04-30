@@ -28,4 +28,16 @@ export class MesInfosPage implements OnInit {
 
   }
 
+  modifemail(email){
+    console.log('email',email);
+  }
+
+  modify_password(){
+    console.log('update pwd');
+  }
+
+  updateUser(){
+    console.log('Submit form_update');
+  }
+
 }

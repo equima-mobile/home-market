@@ -8,7 +8,7 @@
         <img class="logo-img" src="../assets/img/logo-img.png" alt="logo-img.png" />
         <div>
             <!-- <img class="logo-text" src="../assets/img/logo-text-white.png" alt="logo-text.png" /> -->
-            <h4>Mes informations</h4>
+            <h4>{{'compte.mesInformations' | translate}}</h4>
           </div>
       </div>
     </ion-title>
@@ -20,7 +20,7 @@
   <div>
     <form [formGroup]="modifForm" id="modifForm">
       <ion-item lines="none">
-        <ion-label position="stacked">Nom utilisateur:</ion-label>
+        <ion-label position="stacked">{{'informationCompte.identifiant' | translate}}:</ion-label>
         <ion-input type="text" formControlName="username"></ion-input>
         <ion-button class="edit-btn_n" color="primary-contrast"  fill="clear">
           <ion-icon slot="end" name="create"></ion-icon>
@@ -30,13 +30,13 @@
       <div class="message-error">
         <div class="content-error" no-lines *ngIf="modifForm.get('username').hasError('required') && modifForm.get('username').touched">
           <div class="error" *ngIf="modifForm.get('username').hasError('required') && modifForm.get('username').touched">
-            Veuillez saisir votre nom utilisateur
+            {{'modifierMail.meserreurid_inscrit' | translate}}
           </div>
         </div>
       </div>
 
       <ion-item lines="none">
-        <ion-label position="stacked">Nom:</ion-label>
+        <ion-label position="stacked">{{'informationCompte.nomCompteInfo' | translate}}:</ion-label>
         <ion-input type="text" formControlName="nom"></ion-input>
         <ion-button class="edit-btn_n" color="primary-contrast"  fill="clear">
           <ion-icon slot="end" name="create"></ion-icon>
@@ -46,14 +46,14 @@
       <div class="message-error">
         <div class="content-error" no-lines *ngIf="modifForm.get('nom').hasError('required') && modifForm.get('nom').touched">
           <div class="error" *ngIf="modifForm.get('nom').hasError('required') && modifForm.get('nom').touched">
-            Veuillez saisir votre nom
+            {{'modifierMail.meserreuranciennom' | translate}}
           </div>
         </div>
       </div>
     </form>  
 
       <ion-item lines="none">
-        <ion-label position="stacked" (click)= "modifemail(infos_user.email)">Email:</ion-label>
+        <ion-label position="stacked" (click)= "modifemail(infos_user.email)">{{'informationCompte.emailCompteInfo' | translate}}:</ion-label>
         <ion-input [(ngModel)]="infos_user.email" (click)= "modifemail(infos_user.email)" disabled></ion-input>
         <ion-button class="edit-btn" color="primary-contrast"  fill="clear" (click)="modifemail(infos_user.email)">
           <ion-icon slot="end" name="create" class="edit-btn_mail"></ion-icon>
@@ -61,7 +61,7 @@
       </ion-item>
 
       <ion-item lines="none" (click)= "modify_password()">  
-        <ion-label position="stacked">Mot de passe</ion-label>
+        <ion-label position="stacked">{{'informationCompte.motdepasse' | translate}}</ion-label>
         <ion-button class="edit-btn_pwd" color="primary-contrast"  fill="clear">
           <ion-icon slot= "end" name="create" class="edit-icon_pwd"></ion-icon>
         </ion-button>
@@ -69,10 +69,10 @@
   </div>
 
   <div>
-    <ion-button expand = "block" (click)="updateClient()">
+    <ion-button expand = "block" (click)="updateUser()">
       <ion-icon name     = "save"></ion-icon>
-      <ion-label>Enregistrer</ion-label>
-      <ion-spinner *ngIf = "spinner_button" name="dots" color="primary-contrast"></ion-spinner>
+      <ion-label>{{'informationCompte.enregistrer' | translate}}</ion-label>
+      <!-- <ion-spinner *ngIf = "spinner_button" name="dots" color="primary-contrast"></ion-spinner> -->
     </ion-button>
   </div>
 </div>

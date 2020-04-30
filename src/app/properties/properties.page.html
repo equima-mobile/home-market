@@ -27,9 +27,9 @@
         <img [src]="property.url_image">
         <div>
           <ion-card-subtitle>{{ property.adresse}}</ion-card-subtitle>
-          <ion-card-subtitle>{{ property.prix}}</ion-card-subtitle>
+          <ion-card-subtitle>{{ property.prix}} Ariary</ion-card-subtitle>
         </div>
-        <ion-button expand="full" fill="clear" [routerLink]="['/property', property.id]" text-right>{{'actus.lire' | translate}}</ion-button>
+        <ion-button expand="full" fill="clear" [routerLink]="['/property', property.id]" text-right>{{'properties.lire' | translate}}</ion-button>
       </ion-card-content>
     </div>
   </ion-card>

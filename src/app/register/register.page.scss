@@ -1,9 +1,10 @@
 ion-content {
-    --background: url(../../assets/img/login-background.png) 0 0 / 100% 100% no-repeat;
+    --background: url(../../assets/img/login_background.jpg) 0 0 / 100% 100% no-repeat;
 }
 
 .container-subscribe {
-    --background: url(../../assets/img/card-login-background.png) no-repeat;
+    // --background: url(../../assets/img/card-login-background.png) no-repeat;
+    --background: rgba(239,239,239,0.96);
     text-align: center;
 }
 

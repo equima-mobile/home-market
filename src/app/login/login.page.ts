@@ -57,6 +57,8 @@ export class LoginPage implements OnInit {
       
       }
 
-
+      popUpResetPassword(){
+        console.log('Mot de passe oublié')
+      }
 
 }

@@ -6,6 +6,7 @@ import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
 import { AlertService } from 'src/app/shared/alert.service';
 import { PropertiesService } from 'src/app/shared/properties.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-dashboard',
@@ -38,8 +39,8 @@ export class DashboardPage implements OnInit {
         let user_email=session.user_email;
         let user_nicename=session.user_nicename;
 
-        let email_admin='ftokiniainamarius@gmail.com';
-        let password_admin='azerty';
+        let email_admin=environment.email_admin;
+        let password_admin=environment.pwd_admin;
         this.authenticationService.generetoken(email_admin, password_admin)
           .subscribe(res => {
             console.log('token admin',res);
@@ -54,7 +55,6 @@ export class DashboardPage implements OnInit {
             this.users_base=[];
             this.users_base = Object.keys(data).map(key => ({ id: key, ...data[key] }));
             console.log('User base',this.users_base);
-            console.log('Nom Base',this.users_base[6].name);
             for (let i = 0; i < this.users_base.length; i++) {
               if(user_display_name==this.users_base[i].name){
                 this.oneUser = {'id':this.users_base[i].id,'username': user_nicename,'avatar_urls': this.users_base[i].avatar_urls[ '96' ],'user_display_name':user_display_name,'email':user_email}

@@ -17,10 +17,19 @@
     <ion-spinner color="primary"></ion-spinner>
     <label>{{'spinner' | translate}}</label>
   </div>
-  <div *ngIf="property && agent" class="detail_property">
+  <div *ngIf="property" class="detail_property">
     <img [src]="property.url_image" [style.width]="'100%'">
     <div [innerHTML]="property.description" padding></div>
-    <ion-button fill="clear" [routerLink]="['/agent', agent.ID]" text-right>{{agent.nom_agent}}</ion-button>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button fill="clear" [routerLink]="['/agent', property.ID_agent]" text-right>{{property.nom_agent}}</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button fill="clear" [routerLink]="['/location', property.location]" text-right>{{'properties.location' | translate}}</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
 </ion-content>
 

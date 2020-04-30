@@ -1,8 +1,16 @@
-<ion-header>
+<ion-header id="menu_haut">
   <ion-toolbar>
-    <ion-title>location</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button color="black"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="container-logo_sans">
+        <img class="logo-img" src="../assets/img/logo-img.png" alt="logo-img.png" />
+        <!-- <img class="logo-text" src="../assets/img/logo-text.png" alt="logo-text.png" /> -->
+      </div>
+    </ion-title>
   </ion-toolbar>
-</ion-header>
+  </ion-header>
 
 <ion-content padding>
   <div id="map_canvas"></div>

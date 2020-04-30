@@ -59,7 +59,7 @@ export class SearchPropertyPage implements OnInit {
     this.applyFilters();
   }
 
-  findbystreet(property: string, rule: string) {
+  findbystreet(property, rule) {
     this.filters[property] = val => val.toString().toLowerCase().search(rule) > -1 ;
     // this.filters[property] = val => val.toLowerCase().indexOf(rule) != -1;
     this.applyFilters();

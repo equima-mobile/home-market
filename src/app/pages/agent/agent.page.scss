@@ -1,3 +1,7 @@
+ion-content{
+  --background: url(../../../assets/img/agent_background.jpg) 0 0/100% 100% no-repeat;
+}
+
 .container-logo-img{
     position: absolute;
     top: 7%;
@@ -13,8 +17,8 @@
   }
   .container-profile{
     width: 82%;
-    // position: absolute;
-    // top: 13%;
+    position: absolute;
+    top: 13%;
     left: 6%;
     text-align: center;
     background-image: url("../../../assets/img/profile-card-background.png");

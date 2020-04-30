@@ -64,7 +64,18 @@ const routes: Routes = [
   {path: 'mesinfos',loadChildren: './pages/mes-infos/mes-infos.module#MesInfosPageModule'},
   {path: 'search-property',loadChildren:'./search-property/search-property.module#SearchPropertyPageModule'},
   {path: 'mespreferences',loadChildren:'./pages/mespreferences/mespreferences.module#MespreferencesPageModule'},
-  {path: 'location',loadChildren: './pages/location/location.module#LocationPageModule'},
+  {
+    path: 'location',
+    children: [
+      {
+        path: ':location',
+        loadChildren: './pages/location/location.module#LocationPageModule'
+      }
+    ]
+  },
+  {path: 'mentions-legales',loadChildren:'./mentions-legales/mentions-legales.module#MentionsLegalesPageModule'
+  },
+
 
   
   ];

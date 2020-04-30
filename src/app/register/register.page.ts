@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { LoadingController, ModalController } from '@ionic/angular';
 import { LoginPage } from '../login/login.page';
 import { AlertService } from '../shared/alert.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-register',
@@ -20,13 +21,17 @@ export class RegisterPage implements OnInit {
                private alertService: AlertService) { }
 
   ngOnInit() {
+    let email_admin=environment.email_admin;
+    let pwd_admin=environment.pwd_admin;
     this.register_form = this.formBuilder.group({
       username: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
       displayName: new FormControl('', Validators.required),
       email: new FormControl('', Validators.required),
-      email_admin: new FormControl('ftokiniainamarius@gmail.com', Validators.required),
-      password_admin: new FormControl('azerty', Validators.required),
+      // email_admin: new FormControl('ftokiniainamarius@gmail.com', Validators.required),
+      // password_admin: new FormControl('azerty', Validators.required),
+      email_admin: new FormControl(email_admin, Validators.required),
+      password_admin: new FormControl(pwd_admin, Validators.required),
     });
   }
 
