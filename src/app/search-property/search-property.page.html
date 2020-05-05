@@ -9,9 +9,16 @@
         <!-- <img class="logo-text" src="../assets/img/logo-text.png" alt="logo-text.png" /> -->
       </div>
     </ion-title>
-      <ion-buttons slot="end">
+      <ion-buttons slot="end" class="auth">
         <button *ngIf="!loggedUser" ion-button (click)="autentification()" icon-only>
-          <ion-icon name="person"></ion-icon>
+          <ion-icon name="person" color="primary"></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-buttons slot="end" [routerLink]="['/message']" class="notif">
+        <button  ion-button (click)="openNotifications()" icon-only>
+          <ion-icon name="notifications" color="primary"></ion-icon>
+          <ion-badge slot="end" *ngIf="lengthNotification || lengthNotification!=0">{{lengthNotification}}
+          </ion-badge>
         </button>
       </ion-buttons>
   </ion-toolbar>

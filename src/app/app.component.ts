@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Platform, MenuController } from '@ionic/angular';
+import { Platform, MenuController, AlertController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AuthentificationService } from './shared/authentification.service';
@@ -9,6 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Storage } from '@ionic/storage';
 
 import { Environment } from '@ionic-native/google-maps';
+import { OneSignal } from '@ionic-native/onesignal/ngx';
 
 
 @Component({
@@ -61,6 +62,8 @@ export class AppComponent {
     public authenticationService: AuthentificationService,
     public translate: TranslateService,
     private storage: Storage,
+    private oneSignal: OneSignal,
+    private alertCtrl: AlertController
   ) {
     this.initializeApp();
     // translate.setDefaultLang('en');
@@ -84,6 +87,10 @@ export class AppComponent {
         // api key for local development
         'API_KEY_FOR_BROWSER_DEBUG': 'AIzaSyCgwW03xXNdhhzhXffpHdaA0DpRUSbaEFM'
       });
+
+      if (this.platform.is('cordova')) {
+        this.setupPush();
+      }
 
     });
   }
@@ -128,6 +135,47 @@ export class AppComponent {
         console.log(err);
       });
     });
+  }
+
+  setupPush() {
+    // I recommend to put these into your environment.ts
+    this.oneSignal.startInit('43e3fedf-2fca-48d2-9ba0-b09d8899e985', '464765485773');
+ 
+    this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.None);
+ 
+    // Notifcation was received in general
+    this.oneSignal.handleNotificationReceived().subscribe(data => {
+      let msg = data.payload.body;
+      let title = data.payload.title;
+      let additionalData = data.payload.additionalData;
+      this.showAlert(title, msg, additionalData.task);
+    });
+ 
+    // Notification was really clicked/opened
+    this.oneSignal.handleNotificationOpened().subscribe(data => {
+      // Just a note that the data is a different place here!
+      let additionalData = data.notification.payload.additionalData;
+ 
+      this.showAlert('Notification opened', 'You already read this before', additionalData.task);
+    });
+ 
+    this.oneSignal.endInit();
+  }
+ 
+  async showAlert(title, msg, task) {
+    const alert = await this.alertCtrl.create({
+      header: title,
+      subHeader: msg,
+      buttons: [
+        {
+          text: `Action: ${task}`,
+          handler: () => {
+            // E.g: Navigate to a specific screen
+          }
+        }
+      ]
+    })
+    alert.present();
   }
 
 

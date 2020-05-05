@@ -73,9 +73,10 @@ const routes: Routes = [
       }
     ]
   },
-  {path: 'mentions-legales',loadChildren:'./mentions-legales/mentions-legales.module#MentionsLegalesPageModule'
-  },
-
+  {path: 'mentions-legales',loadChildren:'./mentions-legales/mentions-legales.module#MentionsLegalesPageModule'},
+  {path: 'message',loadChildren:'./pages/message/message.module#MessagePageModule'},
+  {path: 'detail-message',loadChildren:'./pages/detail-message/detail-message.module#DetailMessagePageModule'},
+  {path: 'support',loadChildren:'./pages/support/support.module#SupportPageModule'},
 
   
   ];

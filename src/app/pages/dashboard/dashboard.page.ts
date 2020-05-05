@@ -17,7 +17,7 @@ export class DashboardPage implements OnInit {
   users: User[];
   users_base;
   oneUser:User_base;
-  lengthNotification=1;
+  lengthNotification=0;
   spinner: boolean = false;
   constructor(private menu: MenuController,
               public authenticationService: AuthentificationService,

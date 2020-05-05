@@ -21,6 +21,7 @@ export class SearchPropertyPage implements OnInit {
   filters = {};
   filteredproperties:any;
   spinner: boolean = false;
+  lengthNotification=0;
   constructor(public propertyService: PropertiesService,
               private storage: Storage,
               private modalController: ModalController,
@@ -108,6 +109,10 @@ export class SearchPropertyPage implements OnInit {
 
     autentification(){
       this.router.navigateByUrl('login');
+    }
+
+    openNotifications(){
+      console.log('Notifications');
     }
     
 

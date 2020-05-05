@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar class="retour">
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="container-logo">
+        <img class="logo-img" src="../assets/img/logo-img.png" alt="logo-img.png" />
+        <div>
+          <h4>{{'compte.mesMessages' | translate}}</h4>
+        </div>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="message">
+    <div *ngIf="spinner" class="spinner_center">
+      <ion-spinner color="primary"></ion-spinner>
+      <label>{{'spinner' | translate}}</label>
+    </div>
+    <ul class="container-level">
+      <li *ngFor="let notification of NotificationSeenNoseen" [ngClass]="notification.MessageColor"
+        [routerLink]="['detail-message',notification.id]" (click)="updatefondNotification(notification.id)">
+        <div class="level-icon activate flashit">
+          <ion-icon name="gift"></ion-icon>
+        </div>
+        <div class="level-details activate flashit">
+          <h6>{{notification.title}}</h6>
+          <p>{{notification.message}}</p>
+          <div class="container-date">
+            <p>
+              <ion-icon name="calendar"></ion-icon>{{notification.date | date:'dd/MM/yyyy'}}
+              {{notification.date | date:'HH:mm'}}
+            </p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="!message">
+    <div *ngIf="spinner" class="spinner_center">
+        <ion-spinner color="primary"></ion-spinner>
+        <label>{{'spinner' | translate}}</label>
+    </div>
+    <div class="message-aucun-message">
+      <p>{{aucunmessage}}</p>
+    </div>
+  </div>
+
+</ion-content>

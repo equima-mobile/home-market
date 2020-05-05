@@ -26,6 +26,9 @@ export function createTranslateLoader(http: HttpClient) {
 }
 
 
+import { OneSignal } from '@ionic-native/onesignal/ngx';
+
+
 
 @NgModule({
   declarations: [
@@ -57,7 +60,8 @@ export function createTranslateLoader(http: HttpClient) {
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    NativeStorage
+    NativeStorage,
+    OneSignal
   ],
   bootstrap: [AppComponent]
 })

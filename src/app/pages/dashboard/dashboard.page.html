@@ -40,12 +40,16 @@
   </ion-card>
   <ion-grid class="other-menu">
     <ion-row>
-      <ion-col size="6">
-        <ion-chip [routerLink]="['/mentions-legales/']">
-          <ion-icon name="list" size="large" color="primary"></ion-icon>
-          <ion-label>{{'compte.mentionsLegal' | translate}}</ion-label>
+      <ion-col size="6" (click)="openNotifications()">
+        <ion-chip [routerLink]="['/message']">
+          <ion-icon name="notifications" size="large" color="primary"></ion-icon>
+          <ion-label>{{'compte.mesMessages' | translate}}
+            <ion-badge slot="end" *ngIf="lengthNotification || lengthNotification!=0">{{lengthNotification}}
+            </ion-badge>
+          </ion-label>
 
         </ion-chip>
+
       </ion-col>
       <ion-col size="6">
         <ion-chip [routerLink]="['/mespreferences']">
@@ -55,17 +59,14 @@
       </ion-col>
     </ion-row>
 
-    <!-- <ion-row>
-      <ion-col size="6" (click)="openNotifications()">
-        <ion-chip [routerLink]="['/tabs/mon_compte/mes-messages']">
-          <ion-icon name="notifications" size="large" color="primary"></ion-icon>
-          <ion-label>{{'compte.mesMessages' | translate}}
-            <ion-badge slot="end" *ngIf="lengthNotification || lengthNotification!=0">1
-            </ion-badge>
-          </ion-label>
+    <ion-row>
+      <ion-col size="6">
+        <ion-chip [routerLink]="['/support']">
+          <ion-icon name="list" size="large" color="primary"></ion-icon>
+          <ion-label>{{'compte.support' | translate}}</ion-label>
         </ion-chip>
       </ion-col>
-    </ion-row> -->
+    </ion-row>
   </ion-grid>
   <div class="log_out">
     <ion-button (click)="logout()" fill="clear">{{'compte.seDeconnecter' | translate}}<ion-icon slot="end"

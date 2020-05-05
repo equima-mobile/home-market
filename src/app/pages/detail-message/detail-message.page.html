@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar class="retour">
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="container-logo">
+        <img class="logo-img" src="../assets/img/logo-img.png" alt="logo-img.png" />
+        <div>
+          <h4>Detail</h4>
+        </div>
+        
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item class="retour" [routerLink]="['/message']">
+    <ion-icon name="arrow-dropleft"></ion-icon>
+    <ion-label>
+      <h2>Detail du message</h2>
+    </ion-label>
+  </ion-item>
+
+  <ion-list lines="full" *ngIf="notification">
+        <h2>{{notification.title}}</h2>
+        <p>{{notification.message}}</p>
+        <p>{{notification.date}}</p>
+        <p>{{notification.categorie}}</p>
+  </ion-list>
+
+
+</ion-content>

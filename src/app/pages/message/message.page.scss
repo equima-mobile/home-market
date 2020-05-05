@@ -1,0 +1,148 @@
+ion-toolbar {
+    --background: var(--ion-color-primary);
+}
+
+/*début css avantages*/
+
+.container-level {
+    margin: 30px 0 0 0;
+    padding: 0;
+    position: relative;
+
+}
+
+h6 {
+    margin-top: 4px;
+
+}
+
+/* The line */
+.container-level:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--ion-color-light);
+    left: 11%;
+    margin-left: -8px;
+
+}
+
+.container-level>li {
+    position: relative;
+}
+
+/* Right content */
+.container-level>li .level-details {
+    margin: 0 14px 15px 19%;
+    padding: 5px;
+    position: relative;
+    background: var(--ion-color-light-shade);
+    border-radius: 7px;
+    box-shadow: 1px 1px 3px 1px var(--ion-color-light);
+}
+
+
+
+.container-level>li .level-details h2 {
+    margin-top: 0px;
+    padding: 0 0 10px 0;
+    border-bottom: 1px solid rgba(208, 197, 197, 0.4);
+}
+
+
+
+/* The triangle */
+.container-level>li .level-details:after {
+    right: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-right-color: var(--ion-color-light-shade);
+    border-width: 10px;
+    top: 10px;
+}
+
+/* The icons */
+.container-level>li .level-icon {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    position: absolute;
+    background: var(--ion-color-light-shade);
+    border-radius: 50%;
+    box-shadow: 0 0 3px 2px var(--ion-color-light-shade);
+    text-align: center;
+    left: 11%;
+    top: 0;
+    margin: 0 0 0 -25px;
+}
+
+.level-icon {
+    ion-icon {
+        vertical-align: middle;
+        font-size: 25px;
+    }
+}
+.unread::before {
+    content:"\002022";
+    color: red;
+    font-weight: bold;
+    font-size: 40px;
+    position: absolute;
+    left:7px;
+    top:-12px;
+    z-index: 200;
+}
+
+.advantage-details ion-label {
+    color: var(--ion-color-secondary);
+    font-family: var(--ion-font-family-bold) !important;
+    margin: 5px 0;
+    padding-left: 2px;
+}
+
+.container-date {
+    text-align: right;
+
+    ion-icon {
+        vertical-align: middle;
+    }
+}
+
+.read {
+
+    .level-icon,
+    .level-details {
+        background: var(--ion-color-light) !important;
+    }
+
+    .level-details {
+        box-shadow: 1px 1px 3px 1px var(--ion-color-light-shade) !important;
+    }
+
+    .level-icon ion-icon,
+    .level-details p,
+    .level-details h6,
+    .container-date p {
+        color: var(--ion-color-secondary);
+    }
+
+    .level-icon {
+        box-shadow: 0 0 3px 2px var(--ion-color-light) !important;
+    }
+
+    .level-details:after {
+        border-right-color: var(--ion-color-light) !important;
+    }
+}
+
+.message-aucun-message {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 25px;
+}
